@@ -1,13 +1,18 @@
 package ImageProcessing;
 
-/**
- * Hello world!
- *
- */
-public class App 
+
+import java.awt.image.BufferedImage;
+
+public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        /*
+        ImageProcess im = new ImageProcess();
+        BufferedImage image = ImageProcess.bufferedImage( "D:\\Uczelnia\\Obrazy\\Project\\Images\\circles-logiczny.png" );
+
+        BufferedImage bin = im.erosion( image, 5 );
+        ImageProcess.saveImage( bin, "image" );
+        */
     }
 }
