@@ -201,4 +201,52 @@ public class ImageConvert
 
         return tMax;
     }
+
+    /**
+     * Convert RGB image to gray
+     * @param image BufferedImage object
+     * @return new BufferedImage object each color set on the same value( 0-255)
+     */
+    public BufferedImage toGray( BufferedImage image)
+    {
+        BufferedImage newImage = new BufferedImage( image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_RGB );
+        for(int i =0; i< image.getWidth(); i++)
+        {
+            for(int j =0; j< image.getHeight(); j++)
+            {
+                Color c = new Color(image.getRGB(i, j));
+                int red = (int)(c.getRed() * 0.299);
+                int green = (int)(c.getGreen() * 0.587);
+                int blue = (int)(c.getBlue() *0.114);
+                Color newColor = new Color(red+green+blue, red+green+blue,red+green+blue);
+
+                newImage.setRGB(i, j,newColor.getRGB());
+            }
+        }
+        return newImage;
+    }
+
+    /**
+     * calculating the differences between two images
+     * @param image1 BufferedImage object
+     * @param image2 BufferedImage object
+     * @return new BufferedImage object representation differences
+     */
+    public BufferedImage differentiation(BufferedImage image1, BufferedImage image2)
+    {
+        BufferedImage newImage = new BufferedImage( image1.getWidth(), image1.getHeight(), BufferedImage.TYPE_INT_RGB );
+        for(int i =0; i< image1.getWidth(); i++)
+        {
+            for(int j =0; j< image1.getHeight(); j++)
+            {
+                Color c1 = new Color(image1.getRGB(i, j));
+                Color c2 = new Color(image2.getRGB(i, j));
+                int col = Math.abs(c1.getRed() - c2.getRed());
+
+                Color newColor = new Color(col, col, col);
+                newImage.setRGB(i, j,newColor.getRGB());
+            }
+        }
+        return newImage;
+    }
 }
