@@ -1,4 +1,4 @@
-package com.company.processing;
+package ImageProcessing;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -7,11 +7,9 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
 
-///home/erykk/IdeaProjects/JavaImageProcessing/src/images/cameraman.jpg 2
 
 public class Ordfilt2 {
 
-    private String path;
     private String mask;
     private Integer number;
     private Integer maskX;
@@ -21,20 +19,15 @@ public class Ordfilt2 {
     private int[][] green;
     private int[][] blue;
 
-    public void start() {
+    public BufferedImage ordfilt2(BufferedImage image, Integer maskX, Integer maskY, Integer number) {
 
-        info();
+        setMaskX(maskX);
+        setMaskY(maskY);
+        setNumber(number);
+        if (maskX*maskX < number)
+            System.out.println("Error");
 
-        BufferedImage image = null;
-        File file = null;
 
-        try {
-            file = new File(path);
-            image = ImageIO.read(file);
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
 
         int width = image.getWidth();
         int height = image.getHeight();
@@ -89,19 +82,22 @@ public class Ordfilt2 {
         }
 
 
-        saveImage(file,image);
+        return image;
     }
 
-    public void saveImage(File file, BufferedImage image) {
+    public static BufferedImage bufferedImage( String filePath )
+    {
+        BufferedImage image = null;
         try
         {
-            file = new File("/home/erykk/IdeaProjects/JavaImageProcessing/src/images/result.jpg");
-            ImageIO.write(image, "jpg", file);
+            image = ImageIO.read(new File(filePath));
         }
-        catch(IOException e)
+        catch( IOException e )
         {
-            System.out.println(e);
+            e.printStackTrace();
         }
+
+        return image;
     }
 
     public int getPart(int x, int y, int[][] arr, int height, int width) {
@@ -131,26 +127,7 @@ public class Ordfilt2 {
         return minArr[number];
     }
 
-    public void info() {
-        System.out.print("Mask: ");
-        Scanner sc = new Scanner(System.in);
-        setMask(sc.next());
-        System.out.print("Number: ");
-        setNumber(sc.nextInt());
-
-        String[] arr = String.valueOf(mask).split(",");
-        Integer x = Integer.parseInt(arr[0]);
-        setMaskX(x);
-        Integer y = Integer.parseInt(arr[1]);
-        setMaskY(y);
-
-        if (number > x*y) {
-            System.out.println("Error");
-        }
-    }
-
-    public Ordfilt2(String path) {
-        this.path = path;
+    public Ordfilt2() {
     }
 
     public int[][] getRed() {
