@@ -120,7 +120,6 @@ public class ImageTransform extends ImageConvert
                     return true;
             }
         }
-
         return false;
     }
 }
