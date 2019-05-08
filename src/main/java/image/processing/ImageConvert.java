@@ -9,14 +9,15 @@ import java.util.Arrays;
  */
 public class ImageConvert
 {
-    protected final int black = new Color(0,0,0).getRGB();
-    protected final int white = new Color(255,255,255).getRGB();
+    protected final int black = new Color(0, 0, 0).getRGB();
+    protected final int white = new Color(255, 255, 255).getRGB();
 
     /**
      * Converts RGB color into one 0-255 value
+     *
      * @param image BufferedImage object
-     * @param x X axis coordinate
-     * @param y Y axis coordinate
+     * @param x     X axis coordinate
+     * @param y     Y axis coordinate
      * @return double value
      */
     public double grayScale( BufferedImage image, int x, int y )
@@ -30,13 +31,14 @@ public class ImageConvert
 
     /**
      * Creates histogram to given image
+     *
      * @param image BufferedImage object
      * @return int array
      */
     public int[] histogram( BufferedImage image )
     {
         int[] hist = new int[256];
-        Arrays.fill( hist, 0 );
+        Arrays.fill(hist, 0);
 
         for( int i = 0; i < image.getHeight(); ++i )
             for( int j = 0; j < image.getWidth(); ++j )
@@ -47,6 +49,7 @@ public class ImageConvert
 
     /**
      * Makes the sum of all bins equal to 1
+     *
      * @param hist histogram
      * @return double array
      */
@@ -66,6 +69,7 @@ public class ImageConvert
 
     /**
      * Checks if image is already binarized
+     *
      * @param image BufferedImage object
      * @return true if is binarized, otherwise false
      */
@@ -75,7 +79,7 @@ public class ImageConvert
         {
             for( int j = 0; j < image.getWidth(); j++ )
             {
-                int color = image.getRGB( j, i );
+                int color = image.getRGB(j, i);
                 if( color != black && color != white )
                     return false;
             }
@@ -86,7 +90,8 @@ public class ImageConvert
 
     /**
      * Changes pixels below given value into black and above into white color
-     * @param image BufferedImage object
+     *
+     * @param image      BufferedImage object
      * @param splitValue int value of range 0-255
      * @return new BufferedImage object with black and/or white pixels
      */
@@ -98,13 +103,13 @@ public class ImageConvert
         if( isBinarized(image) )
             return image;
 
-        BufferedImage newImage = new BufferedImage( image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_RGB );
+        BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_RGB);
 
         for( int i = 0; i < image.getHeight(); ++i )
         {
             for( int j = 0; j < image.getWidth(); ++j )
             {
-                double grayScale = grayScale( image, j, i );
+                double grayScale = grayScale(image, j, i);
                 if( grayScale <= splitValue )
                     newImage.setRGB(j, i, black);
                 else
@@ -117,6 +122,7 @@ public class ImageConvert
 
     /**
      * Counts best image split value and call binarize method
+     *
      * @param image BufferedImage object
      * @return new BufferedImage object with black and/or white pixels
      */
@@ -139,6 +145,7 @@ public class ImageConvert
 
     /**
      * Counts best image split value by counting entropy for black and white parts of histogram
+     *
      * @param image BufferedImage object
      * @return int value
      */
@@ -167,8 +174,7 @@ public class ImageConvert
                         max -= normalizedHist[i] / pT[t] * Math.log(normalizedHist[i] / pT[t]);
 
                 histBlack[t] = max;
-            }
-            else
+            } else
                 histBlack[t] = 0;
 
             // White  entropy
@@ -181,8 +187,7 @@ public class ImageConvert
                         max -= normalizedHist[i] / pTWhite * Math.log(normalizedHist[i] / pTWhite);
 
                 histWhite[t] = max;
-            }
-            else
+            } else
                 histWhite[t] = 0;
         }
 
@@ -192,7 +197,7 @@ public class ImageConvert
         for( int t = 1; t < hist.length; ++t )
         {
             double j = histBlack[t] + histWhite[t];
-            if (j > jMax)
+            if( j > jMax )
             {
                 jMax = j;
                 tMax = t;
@@ -204,23 +209,24 @@ public class ImageConvert
 
     /**
      * Convert RGB image to gray
+     *
      * @param image BufferedImage object
      * @return new BufferedImage object each color set on the same value( 0-255)
      */
-    public BufferedImage toGray( BufferedImage image)
+    public BufferedImage toGray( BufferedImage image )
     {
-        BufferedImage newImage = new BufferedImage( image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_RGB );
-        for(int i =0; i< image.getWidth(); i++)
+        BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_RGB);
+        for( int i = 0; i < image.getWidth(); i++ )
         {
-            for(int j =0; j< image.getHeight(); j++)
+            for( int j = 0; j < image.getHeight(); j++ )
             {
                 Color c = new Color(image.getRGB(i, j));
-                int red = (int)(c.getRed() * 0.299);
-                int green = (int)(c.getGreen() * 0.587);
-                int blue = (int)(c.getBlue() *0.114);
-                Color newColor = new Color(red+green+blue, red+green+blue,red+green+blue);
+                int red = (int) (c.getRed() * 0.299);
+                int green = (int) (c.getGreen() * 0.587);
+                int blue = (int) (c.getBlue() * 0.114);
+                Color newColor = new Color(red + green + blue, red + green + blue, red + green + blue);
 
-                newImage.setRGB(i, j,newColor.getRGB());
+                newImage.setRGB(i, j, newColor.getRGB());
             }
         }
         return newImage;
@@ -228,25 +234,27 @@ public class ImageConvert
 
     /**
      * calculating the differences between two images
+     *
      * @param image1 BufferedImage object
      * @param image2 BufferedImage object
      * @return new BufferedImage object representation differences
      */
-    public BufferedImage differentiation(BufferedImage image1, BufferedImage image2)
+    public BufferedImage differentiation( BufferedImage image1, BufferedImage image2 )
     {
-        BufferedImage newImage = new BufferedImage( image1.getWidth(), image1.getHeight(), BufferedImage.TYPE_INT_RGB );
-        for(int i =0; i< image1.getWidth(); i++)
+        BufferedImage newImage = new BufferedImage(image1.getWidth(), image1.getHeight(), BufferedImage.TYPE_INT_RGB);
+        for( int i = 0; i < image1.getWidth(); i++ )
         {
-            for(int j =0; j< image1.getHeight(); j++)
+            for( int j = 0; j < image1.getHeight(); j++ )
             {
                 Color c1 = new Color(image1.getRGB(i, j));
                 Color c2 = new Color(image2.getRGB(i, j));
                 int col = Math.abs(c1.getRed() - c2.getRed());
 
                 Color newColor = new Color(col, col, col);
-                newImage.setRGB(i, j,newColor.getRGB());
+                newImage.setRGB(i, j, newColor.getRGB());
             }
         }
+
         return newImage;
     }
 }
