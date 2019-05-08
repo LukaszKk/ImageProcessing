@@ -1,4 +1,4 @@
-package ImageProcessing;
+package image.processing;
 
 import static org.junit.Assert.assertTrue;
 
