@@ -1,4 +1,4 @@
-package com.company.processing;
+package image.processing;
 
 
 import javax.imageio.ImageIO;
@@ -10,7 +10,6 @@ import java.util.Scanner;
 
 public class GeoDistance {
 
-    private String path;
     private int width;
     private int height;
     private Point A;
@@ -18,17 +17,18 @@ public class GeoDistance {
     private int[][] SE;
     private int[][] marker;
 
-    public void start() {
+    /**
+     *
+     * @param im
+     */
+    public BufferedImage geodistance(BufferedImage im) {
         info();
 
-        BufferedImage image = null;
-        File file = null;
+        BufferedImage image = im;
 
         BufferedImage map = null;
 
         try {
-            file = new File(path);
-            image = ImageIO.read(file);
             map = new BufferedImage(image.getWidth(),image.getHeight(),BufferedImage.TYPE_INT_BGR);
 
         } catch (Exception e) {
@@ -71,16 +71,15 @@ public class GeoDistance {
             }
         }
 
-        try {
-            File f = new File("/home/erykk/IdeaProjects/JavaImageProcessing/src/images/res_1.jpg");
-            ImageIO.write(map, "jpg", f);
-        } catch (IOException e) {
-            System.out.println(e);
-        }
+        return map;
     }
 
-
-
+    /**
+     *
+     * @param marker
+     * @param original
+     * @return
+     */
     private int[][] logicalAndForArrays(int[][] marker, int[][] original) {
 
         for (int i = 0; i < height; i++) {
@@ -94,6 +93,13 @@ public class GeoDistance {
         return marker;
     }
 
+    /**
+     *
+     * @param values
+     * @param dilMap
+     * @param iter
+     * @return
+     */
     private int[][] dilatation(int[][] values, int[][] dilMap, int iter) {
         for (int i = 0; i < height; i++ ) {
             for (int j = 0; j < width; j++ ) {
@@ -123,6 +129,9 @@ public class GeoDistance {
         return values;
     }
 
+    /**
+     *
+     */
     private void info() {
         System.out.println("NastedPoint A");
         System.out.print("x = ");
@@ -132,7 +141,7 @@ public class GeoDistance {
         A.y = sc.nextInt();
     }
 
-    public void saveImage(File file, BufferedImage image, String name) {
+    private void saveImage(File file, BufferedImage image, String name) {
         try
         {
             file = new File("/home/erykk/IdeaProjects/JavaImageProcessing/src/images/" + name + ".bmp");
@@ -144,20 +153,27 @@ public class GeoDistance {
         }
     }
 
-    public void saveJpgImage(File file, BufferedImage image, String name) {
+    /**
+     *
+     * @param filePath
+     * @return
+     */
+    public static BufferedImage bufferedImage( String filePath )
+    {
+        BufferedImage image = null;
         try
         {
-            file = new File("/home/erykk/IdeaProjects/JavaImageProcessing/src/images/" + name + ".jpg");
-            ImageIO.write(image, "jpg", file);
+            image = ImageIO.read(new File(filePath));
         }
-        catch(IOException e)
+        catch( IOException e )
         {
-            System.out.println(e);
+            e.printStackTrace();
         }
+
+        return image;
     }
 
-    public GeoDistance(String path) {
-        this.path = path;
+    public GeoDistance() {
         SE = new int[3][3];
         for (int i = 0; i < 3; i++)
             for (int j = 0; j < 3; j++)

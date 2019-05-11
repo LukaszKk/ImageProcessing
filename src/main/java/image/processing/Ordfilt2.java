@@ -18,6 +18,14 @@ public class Ordfilt2 {
     private int[][] green;
     private int[][] blue;
 
+    /**
+     *
+     * @param image
+     * @param maskX
+     * @param maskY
+     * @param number
+     * @return
+     */
     public BufferedImage ordfilt2(BufferedImage image, Integer maskX, Integer maskY, Integer number) {
 
         setMaskX(maskX);
@@ -25,8 +33,6 @@ public class Ordfilt2 {
         setNumber(number);
         if (maskX*maskX < number)
             System.out.println("Error");
-
-
 
         int width = image.getWidth();
         int height = image.getHeight();
@@ -84,6 +90,11 @@ public class Ordfilt2 {
         return image;
     }
 
+    /**
+     *
+     * @param filePath
+     * @return
+     */
     public static BufferedImage bufferedImage( String filePath )
     {
         BufferedImage image = null;
@@ -99,6 +110,15 @@ public class Ordfilt2 {
         return image;
     }
 
+    /**
+     *
+     * @param x
+     * @param y
+     * @param arr
+     * @param height
+     * @param width
+     * @return
+     */
     public int getPart(int x, int y, int[][] arr, int height, int width) {
         int[][] copy = arr;
         int[] minArr = new int [maskX*maskY];

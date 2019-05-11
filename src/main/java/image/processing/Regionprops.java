@@ -1,33 +1,26 @@
-package com.company.processing;
+package image.processing;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.*;
-import java.util.List;
 
 public class Regionprops {
 
-    private String path;
     private int width;
     private int height;
 
 
-    public void start() {
+    /**
+     *
+     * @param im
+     * @return
+     */
+    public BufferedImage regionprops(BufferedImage im) {
 
-        BufferedImage image = null;
-        File file = null;
-
-        try {
-            file = new File(path);
-            image = ImageIO.read(file);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+        BufferedImage image = im;
 
         width = image.getWidth();
         height = image.getHeight();
@@ -50,10 +43,13 @@ public class Regionprops {
 
         calculate(gray);
 
-        saveImage(file,image);
-
+        return image;
     }
 
+    /**
+     *
+     * @param gray
+     */
     private void calculate(int[][] gray) {
 
         int[] subX = new int[256];
@@ -89,19 +85,23 @@ public class Regionprops {
         }
     }
 
-    public void saveImage(File file, BufferedImage image) {
+    /**
+     *
+     * @param filePath
+     * @return
+     */
+    public static BufferedImage bufferedImage( String filePath )
+    {
+        BufferedImage image = null;
         try
         {
-            file = new File("/home/erykk/IdeaProjects/JavaImageProcessing/src/images/result2.jpg");
-            ImageIO.write(image, "jpg", file);
+            image = ImageIO.read(new File(filePath));
         }
-        catch(IOException e)
+        catch( IOException e )
         {
-            System.out.println(e);
+            e.printStackTrace();
         }
-    }
 
-    public Regionprops(String path) {
-        this.path = path;
+        return image;
     }
 }
