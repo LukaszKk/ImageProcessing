@@ -2,18 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a870c43d-ac55-49f0-a5a8-8af8796f0791" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/images/dziury.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/image/processing/GeoDistance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/image/processing/Regionprops.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/image/processing/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/image/processing/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/image/processing/GeoDistance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/image/processing/GeoDistance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/image/processing/ImageProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/image/processing/ImageProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/image/processing/ImageTransform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/image/processing/ImageTransform.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/image/processing/Ordfilt2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/image/processing/Ordfilt2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/image/processing/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/image/processing/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/image/processing/ImageConvert.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/image/processing/ImageConvert.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/image/processing/ImageProcess.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/image/processing/ImageProcess.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/image/processing/ImageTransform.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/image/processing/ImageTransform.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/image/processing/Ordfilt2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/image/processing/Ordfilt2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/image/processing/Reconstruction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/image/processing/Reconstruction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/image/processing/Reconstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/image/processing/Reconstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/image/processing/Regionprops.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/image/processing/Regionprops.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -28,32 +24,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/image/processing/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="30" column="54" lean-forward="true" selection-start-line="30" selection-start-column="54" selection-end-line="30" selection-end-column="54" />
+            <state relative-caret-position="325">
+              <caret line="34" column="10" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/image/processing/GeoDistance.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="71" column="9" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/images/dziury.bmp">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/images/res_1.jpg">
-          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -80,15 +57,16 @@
         <option value="$PROJECT_DIR$/src/main/java/ImageProcessing/App.java" />
         <option value="$PROJECT_DIR$/src/main/java/ImageProcessing/Ordfilt2.java" />
         <option value="$PROJECT_DIR$/src/main/java/image/processing/ImageBinarize.java" />
-        <option value="$PROJECT_DIR$/src/main/java/image/processing/ImageProcess.java" />
-        <option value="$PROJECT_DIR$/src/main/java/image/processing/ImageTransform.java" />
         <option value="$PROJECT_DIR$/src/main/java/ImageProcessing/ImageTransform.java" />
         <option value="$PROJECT_DIR$/src/main/java/ImageProcessing/ImageConvert.java" />
         <option value="$PROJECT_DIR$/src/main/java/image/processing/ImageConvert.java" />
+        <option value="$PROJECT_DIR$/src/main/java/image/processing/ImageTransform.java" />
+        <option value="$PROJECT_DIR$/src/main/java/image/processing/Reconstruction.java" />
         <option value="$PROJECT_DIR$/src/main/java/image/processing/Ordfilt2.java" />
         <option value="$PROJECT_DIR$/src/main/java/image/processing/Regionprops.java" />
-        <option value="$PROJECT_DIR$/src/main/java/image/processing/App.java" />
         <option value="$PROJECT_DIR$/src/main/java/image/processing/GeoDistance.java" />
+        <option value="$PROJECT_DIR$/src/main/java/image/processing/ImageProcess.java" />
+        <option value="$PROJECT_DIR$/src/main/java/image/processing/App.java" />
       </list>
     </option>
   </component>
@@ -116,10 +94,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1048" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -129,6 +107,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -140,12 +119,6 @@
               <item name="ImageProcessing" type="b2602c69:ProjectViewProjectNode" />
               <item name="ImageProcessing" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageProcessing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageProcessing" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ImageProcessing" type="b2602c69:ProjectViewProjectNode" />
@@ -177,14 +150,13 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/images" />
+    <property name="last_opened_file_path" value="D:/Uczelnia/Obrazy/Project" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -264,13 +236,22 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20075000" />
+    <option name="totallyTimeSpent" value="22346000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1366" height="732" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17651515" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1762481" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -279,11 +260,11 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32718122" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32718122" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39932886" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32718122" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
@@ -321,13 +302,6 @@
     <entry file="file://$PROJECT_DIR$/src/images/cameraman.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/image/processing/ImageTransform.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="103" column="54" lean-forward="true" selection-start-line="103" selection-start-column="54" selection-end-line="103" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/images/mono2.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -340,67 +314,8 @@
     <entry file="file://$PROJECT_DIR$/image.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/image/processing/ImageConvert.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="920">
-          <caret line="124" column="6" selection-start-line="124" selection-start-column="6" selection-end-line="124" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DiagramState.drawio">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/image/processing/ImageProcess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/image/processing/Ordfilt2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-345">
-          <caret line="28" column="24" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3498#3499#0" expanded="true" />
-            <element signature="e#3524#3525#0" expanded="true" />
-            <element signature="e#3563#3564#0" expanded="true" />
-            <element signature="e#3593#3594#0" expanded="true" />
-            <element signature="e#3626#3627#0" expanded="true" />
-            <element signature="e#3654#3655#0" expanded="true" />
-            <element signature="e#3697#3698#0" expanded="true" />
-            <element signature="e#3731#3732#0" expanded="true" />
-            <element signature="e#3763#3764#0" expanded="true" />
-            <element signature="e#3790#3791#0" expanded="true" />
-            <element signature="e#3831#3832#0" expanded="true" />
-            <element signature="e#3863#3864#0" expanded="true" />
-            <element signature="e#3896#3897#0" expanded="true" />
-            <element signature="e#3924#3925#0" expanded="true" />
-            <element signature="e#3967#3968#0" expanded="true" />
-            <element signature="e#4001#4002#0" expanded="true" />
-            <element signature="e#4034#4035#0" expanded="true" />
-            <element signature="e#4062#4063#0" expanded="true" />
-            <element signature="e#4105#4106#0" expanded="true" />
-            <element signature="e#4139#4140#0" expanded="true" />
-            <element signature="e#4170#4171#0" expanded="true" />
-            <element signature="e#4197#4198#0" expanded="true" />
-            <element signature="e#4237#4238#0" expanded="true" />
-            <element signature="e#4269#4270#0" expanded="true" />
-            <element signature="e#4303#4304#0" expanded="true" />
-            <element signature="e#4332#4333#0" expanded="true" />
-            <element signature="e#4377#4378#0" expanded="true" />
-            <element signature="e#4413#4414#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/image/processing/Regionprops.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="20" column="53" lean-forward="true" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="53" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/result.txt">
       <provider selected="true" editor-type-id="text-editor" />
@@ -411,20 +326,66 @@
     <entry file="file://$PROJECT_DIR$/src/images/dziury.bmp">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/images/res_1.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/image/processing/App.java">
+    <entry file="file://$PROJECT_DIR$/src/images/res_1.jpg" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/image/processing/ImageTransform.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="30" column="54" lean-forward="true" selection-start-line="30" selection-start-column="54" selection-end-line="30" selection-end-column="54" />
+        <state relative-caret-position="172">
+          <caret line="102" column="32" lean-forward="true" selection-start-line="102" selection-start-column="32" selection-end-line="102" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/image/processing/Ordfilt2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/image/processing/Reconstruction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="7" column="57" lean-forward="true" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/image/processing/Regionprops.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="81" column="9" lean-forward="true" selection-start-line="81" selection-start-column="9" selection-end-line="81" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/image/processing/GeoDistance.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="71" column="9" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
+        <state relative-caret-position="-544">
+          <caret line="33" column="13" lean-forward="true" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/image/processing/ImageConvert.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="97" column="53" lean-forward="true" selection-start-line="97" selection-start-column="53" selection-end-line="97" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/image/processing/ImageProcess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="36" column="38" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/image/processing/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="34" column="10" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
         </state>
       </provider>
     </entry>
