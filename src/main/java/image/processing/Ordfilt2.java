@@ -4,8 +4,7 @@ import java.awt.image.BufferedImage;
 import java.util.Arrays;
 
 
-public class Ordfilt2
-{
+public class Ordfilt2 {
 
     private String mask;
     private Integer number;
@@ -17,19 +16,19 @@ public class Ordfilt2
     private int[][] blue;
 
     /**
+     * Uses ordfilt2 algorithm to filter given image.
      * @param image
      * @param maskX
      * @param maskY
      * @param number
      * @return
      */
-    public BufferedImage ordfilt2( BufferedImage image, Integer maskX, Integer maskY, Integer number )
-    {
+    public BufferedImage ordfilt2(BufferedImage image, Integer maskX, Integer maskY, Integer number) {
 
         setMaskX(maskX);
         setMaskY(maskY);
         setNumber(number);
-        if( maskX * maskX < number )
+        if (maskX * maskX < number)
             System.out.println("Error");
 
         int width = image.getWidth();
@@ -41,10 +40,8 @@ public class Ordfilt2
 
         int[][] value = new int[width][height];
 
-        for( int y = 0; y < height; y++ )
-        {
-            for( int x = 0; x < width; x++ )
-            {
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
                 int p = image.getRGB(x, y);
                 int a = (p >> 24) & 0xff;
                 int r = (p >> 16) & 0xff;
@@ -59,22 +56,20 @@ public class Ordfilt2
             }
         }
 
-        for( int y = 0; y < height; y++ )
-            for( int x = 0; x < width; x++ )
+        for (int y = 0; y < height; y++)
+            for (int x = 0; x < width; x++)
                 red[x][y] = getPart(x, y, red, height, width);
 
-        for( int y = 0; y < height; y++ )
-            for( int x = 0; x < width; x++ )
+        for (int y = 0; y < height; y++)
+            for (int x = 0; x < width; x++)
                 green[x][y] = getPart(x, y, green, height, width);
 
-        for( int y = 0; y < height; y++ )
-            for( int x = 0; x < width; x++ )
+        for (int y = 0; y < height; y++)
+            for (int x = 0; x < width; x++)
                 blue[x][y] = getPart(x, y, blue, height, width);
 
-        for( int y = 0; y < height; y++ )
-        {
-            for( int x = 0; x < width; x++ )
-            {
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
                 int p = value[x][y];
                 int a = (p >> 24) & 0xff;
                 int r = red[x][y];
@@ -91,6 +86,7 @@ public class Ordfilt2
     }
 
     /**
+     * Return each pixel after filtration by given mask and number.
      * @param x
      * @param y
      * @param arr
@@ -98,8 +94,7 @@ public class Ordfilt2
      * @param width
      * @return
      */
-    public int getPart( int x, int y, int[][] arr, int height, int width )
-    {
+    public int getPart(int x, int y, int[][] arr, int height, int width) {
         int[][] copy = arr;
         int[] minArr = new int[maskX * maskY];
         int c = 0;
@@ -107,20 +102,16 @@ public class Ordfilt2
         int mask1 = getMaskX();
         int mask2 = getMaskY();
 
-        for( int i = y; i < height; i++ )
-        {
-            for( int j = x; j < width; j++ )
-            {
-                if( (j + 1 < width) && (mask1 > 0) )
-                {
+        for (int i = y; i < height; i++) {
+            for (int j = x; j < width; j++) {
+                if ((j + 1 < width) && (mask1 > 0)) {
                     mask1--;
                     minArr[c++] = copy[j][i];
-                } else if( mask1-- > 0 )
-                {
+                } else if (mask1-- > 0) {
                     minArr[c++] = copy[j][i];
                 }
             }
-            if( mask2-- <= 1 )
+            if (mask2-- <= 1)
                 break;
             mask1 = getMaskX();
         }
@@ -130,77 +121,62 @@ public class Ordfilt2
         return minArr[number];
     }
 
-    public Ordfilt2()
-    {
+    public Ordfilt2() {
     }
 
-    public int[][] getRed()
-    {
+    public int[][] getRed() {
         return red;
     }
 
-    public void setRed( int[][] red )
-    {
+    public void setRed(int[][] red) {
         this.red = red;
     }
 
-    public int[][] getGreen()
-    {
+    public int[][] getGreen() {
         return green;
     }
 
-    public void setGreen( int[][] green )
-    {
+    public void setGreen(int[][] green) {
         this.green = green;
     }
 
-    public int[][] getBlue()
-    {
+    public int[][] getBlue() {
         return blue;
     }
 
-    public void setBlue( int[][] blue )
-    {
+    public void setBlue(int[][] blue) {
         this.blue = blue;
     }
 
-    public Integer getMaskX()
-    {
+    public Integer getMaskX() {
         return maskX;
     }
 
-    public void setMaskX( Integer maskX )
-    {
+    public void setMaskX(Integer maskX) {
         this.maskX = maskX;
     }
 
-    public Integer getMaskY()
-    {
+    public Integer getMaskY() {
         return maskY;
     }
 
-    public void setMaskY( Integer maskY )
-    {
+    public void setMaskY(Integer maskY) {
         this.maskY = maskY;
     }
 
-    public String getMask()
-    {
+    public String getMask() {
         return mask;
     }
 
-    public void setMask( String mask )
-    {
+    public void setMask(String mask) {
         this.mask = mask;
     }
 
-    public Integer getNumber()
-    {
+    public Integer getNumber() {
         return number;
     }
 
-    public void setNumber( Integer number )
-    {
+    public void setNumber(Integer number) {
         this.number = number;
     }
 }

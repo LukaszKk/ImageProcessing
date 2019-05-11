@@ -8,8 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class GeoDistance
-{
+public class GeoDistance {
 
     private int width;
     private int height;
@@ -19,22 +18,21 @@ public class GeoDistance
     private int[][] marker;
 
     /**
+     * Uses the algorithm to create a geodetic map.
+     *
      * @param im
      */
-    public BufferedImage geodistance( BufferedImage im )
-    {
+    public BufferedImage geodistance(BufferedImage im) {
         info();
 
         BufferedImage image = im;
 
         BufferedImage map = null;
 
-        try
-        {
+        try {
             map = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_BGR);
 
-        } catch( Exception e )
-        {
+        } catch (Exception e) {
             System.out.println(e);
         }
 
@@ -43,12 +41,10 @@ public class GeoDistance
 
         int[][] original = new int[width][height];
         int[][] dilationMap = new int[width][height];
-        for( int i = 0; i < height; i++ )
-        {
-            for( int j = 0; j < width; j++ )
-            {
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
                 original[j][i] = image.getRGB(j, i);
-                if( original[j][i] == Color.WHITE.getRGB() )
+                if (original[j][i] == Color.WHITE.getRGB())
                     original[j][i] = 1;
                 else
                     original[j][i] = 0;
@@ -62,8 +58,7 @@ public class GeoDistance
         int iter = 0;
         int condition = (height + width) * 2;
 
-        while( iter < condition )
-        {
+        while (iter < condition) {
             marker = dilatation(marker, dilationMap, iter % 255);
 
             marker = logicalAndForArrays(marker, original);
@@ -71,10 +66,8 @@ public class GeoDistance
             iter++;
         }
 
-        for( int i = 0; i < height; i++ )
-        {
-            for( int j = 0; j < width; j++ )
-            {
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
                 map.setRGB(j, i, dilationMap[j][i]);
             }
         }
@@ -83,20 +76,18 @@ public class GeoDistance
     }
 
     /**
+     * Logical operation - AND.
      * @param marker
      * @param original
      * @return
      */
-    private int[][] logicalAndForArrays( int[][] marker, int[][] original )
-    {
+    private int[][] logicalAndForArrays(int[][] marker, int[][] original) {
 
-        for( int i = 0; i < height; i++ )
-        {
-            for( int j = 0; j < width; j++ )
-            {
-                if( (marker[j][i] == original[j][i]) && original[j][i] == 1 )
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if ((marker[j][i] == original[j][i]) && original[j][i] == 1)
                     marker[j][i] = 1;
-                else if( (marker[j][i] == 1) && original[j][i] == 0 )
+                else if ((marker[j][i] == 1) && original[j][i] == 0)
                     marker[j][i] = 3;
             }
         }
@@ -104,42 +95,35 @@ public class GeoDistance
     }
 
     /**
+     * Carries out dilatation algorithm.
      * @param values
      * @param dilMap
      * @param iter
      * @return
      */
-    private int[][] dilatation( int[][] values, int[][] dilMap, int iter )
-    {
-        for( int i = 0; i < height; i++ )
-        {
-            for( int j = 0; j < width; j++ )
-            {
-                if( values[j][i] == 1 )
-                {
-                    if( j > 0 && values[j - 1][i] == 0 ) values[j - 1][i] = 2;
-                    if( i > 0 && values[j][i - 1] == 0 ) values[j][i - 1] = 2;
-                    if( j + 1 < width && values[j + 1][i] == 0 ) values[j + 1][i] = 2;
-                    if( i + 1 < height && values[j][i + 1] == 0 ) values[j][i + 1] = 2;
+    private int[][] dilatation(int[][] values, int[][] dilMap, int iter) {
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (values[j][i] == 1) {
+                    if (j > 0 && values[j - 1][i] == 0) values[j - 1][i] = 2;
+                    if (i > 0 && values[j][i - 1] == 0) values[j][i - 1] = 2;
+                    if (j + 1 < width && values[j + 1][i] == 0) values[j + 1][i] = 2;
+                    if (i + 1 < height && values[j][i + 1] == 0) values[j][i + 1] = 2;
                 }
             }
         }
 
-        for( int i = 0; i < height; i++ )
-        {
-            for( int j = 0; j < width; j++ )
-            {
-                if( values[j][i] == 2 )
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (values[j][i] == 2)
                     dilMap[j][i] = iter;
             }
         }
 
 
-        for( int i = 0; i < height; i++ )
-        {
-            for( int j = 0; j < width; j++ )
-            {
-                if( values[j][i] == 2 )
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (values[j][i] == 2)
                     values[j][i] = 1;
             }
         }
@@ -147,10 +131,9 @@ public class GeoDistance
     }
 
     /**
-     *
+     *Read information about starting point of calculation.
      */
-    private void info()
-    {
+    private void info() {
         System.out.println("NastedPoint A");
         System.out.print("x = ");
         Scanner sc = new Scanner(System.in);
@@ -159,11 +142,10 @@ public class GeoDistance
         A.y = sc.nextInt();
     }
 
-    public GeoDistance()
-    {
+    public GeoDistance() {
         SE = new int[3][3];
-        for( int i = 0; i < 3; i++ )
-            for( int j = 0; j < 3; j++ )
+        for (int i = 0; i < 3; i++)
+            for (int j = 0; j < 3; j++)
                 SE[i][j] = 1;
         A = new Point();
     }

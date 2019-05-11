@@ -6,8 +6,7 @@ import java.awt.image.BufferedImage;
 /**
  * Contains image transformation methods
  */
-public class ImageTransform extends ImageConvert
-{
+public class ImageTransform extends ImageConvert {
     /**
      * Counts dilation with disk element
      *
@@ -15,18 +14,14 @@ public class ImageTransform extends ImageConvert
      * @param radius disk radius
      * @return new BufferedImage object
      */
-    public BufferedImage dilatation( BufferedImage image, int radius )
-    {
+    public BufferedImage dilatation(BufferedImage image, int radius) {
         BufferedImage binImage = autoBinarize(image);
         BufferedImage newImage = new BufferedImage(binImage.getWidth(), binImage.getHeight(), BufferedImage.TYPE_INT_RGB);
 
-        for( int i = radius; i < binImage.getHeight() - radius; i++ )
-        {
-            for( int j = radius; j < binImage.getWidth() - radius; j++ )
-            {
-                if( grayScale(binImage, j, i) == 0 )
-                {
-                    if( inCircle(binImage, radius, j, i, 255) )
+        for (int i = radius; i < binImage.getHeight() - radius; i++) {
+            for (int j = radius; j < binImage.getWidth() - radius; j++) {
+                if (grayScale(binImage, j, i) == 0) {
+                    if (inCircle(binImage, radius, j, i, 255))
                         newImage.setRGB(j, i, white);
                     else
                         newImage.setRGB(j, i, black);
@@ -45,20 +40,16 @@ public class ImageTransform extends ImageConvert
      * @param radius disk radius
      * @return new BufferedImage object
      */
-    public BufferedImage erosion( BufferedImage image, int radius )
-    {
+    public BufferedImage erosion(BufferedImage image, int radius) {
         BufferedImage binImage = autoBinarize(image);
         BufferedImage newImage = new BufferedImage(binImage.getWidth(), binImage.getHeight(), BufferedImage.TYPE_INT_RGB);
 
         int black = new Color(0, 0, 0).getRGB();
         int white = new Color(255, 255, 255).getRGB();
-        for( int i = radius; i < binImage.getHeight() - radius; i++ )
-        {
-            for( int j = radius; j < binImage.getWidth() - radius; j++ )
-            {
-                if( grayScale(binImage, j, i) == 255 )
-                {
-                    if( inCircle(binImage, radius, j, i, 0) )
+        for (int i = radius; i < binImage.getHeight() - radius; i++) {
+            for (int j = radius; j < binImage.getWidth() - radius; j++) {
+                if (grayScale(binImage, j, i) == 255) {
+                    if (inCircle(binImage, radius, j, i, 0))
                         newImage.setRGB(j, i, black);
                     else
                         newImage.setRGB(j, i, white);
@@ -77,8 +68,7 @@ public class ImageTransform extends ImageConvert
      * @param radius disk radius
      * @return new BufferedImage object
      */
-    public BufferedImage closing( BufferedImage image, int radius )
-    {
+    public BufferedImage closing(BufferedImage image, int radius) {
         BufferedImage dilatation = dilatation(image, radius);
         return erosion(dilatation, radius);
     }
@@ -90,8 +80,7 @@ public class ImageTransform extends ImageConvert
      * @param radius disk radius
      * @return new BufferedImage object
      */
-    public BufferedImage opening( BufferedImage image, int radius )
-    {
+    public BufferedImage opening(BufferedImage image, int radius) {
         BufferedImage erosion = erosion(image, radius);
         return dilatation(erosion, radius);
     }
@@ -106,20 +95,16 @@ public class ImageTransform extends ImageConvert
      * @param val    take 0 or 255 value
      * @return true if point is inside, otherwise false
      */
-    private boolean inCircle( BufferedImage image, int radius, int x, int y, int val )
-    {
-        for( int i = y - radius; i < y + radius; i++ )
-        {
-            for( int j = x; (j - x) * (j - x) + (i - y) * (i - y) <= radius * radius; j-- )
-            {
+    private boolean inCircle(BufferedImage image, int radius, int x, int y, int val) {
+        for (int i = y - radius; i < y + radius; i++) {
+            for (int j = x; (j - x) * (j - x) + (i - y) * (i - y) <= radius * radius; j--) {
                 //in the circle
-                if( grayScale(image, j, i) == val )
+                if (grayScale(image, j, i) == val)
                     return true;
             }
-            for( int j = x + 1; (j - x) * (j - x) + (i - y) * (i - y) <= radius * radius; j++ )
-            {
+            for (int j = x + 1; (j - x) * (j - x) + (i - y) * (i - y) <= radius * radius; j++) {
                 //in the circle
-                if( grayScale(image, j, i) == val )
+                if (grayScale(image, j, i) == val)
                     return true;
             }
         }
