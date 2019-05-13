@@ -15,6 +15,7 @@ public class Main
 
         try
         {
+            /*
             BufferedImage image1 = im.toGray(background);
             ImageProcess.saveImage(image1, "src\\images\\result\\image1");        //background to gray
 
@@ -39,7 +40,13 @@ public class Main
             BufferedImage image8 = re.reconstruct(image7, image6);
             ImageProcess.saveImage(image8, "src\\images\\result\\image8");        //reconstruction
 
-            ImageProcess.showImage("src\\images\\result\\image8");
+            ImageProcess.showImage("src\\images\\result\\image8.jpg");
+            */
+
+            BufferedImage image9 = im.toGray(background);
+            BufferedImage image10 = im.erosion(image9, 5);
+            ImageProcess.saveImage(image10, "src\\images\\result\\image9");
+            ImageProcess.showImage("src\\images\\result\\image9.jpg");
 
         } catch( Exception e )
         {
