@@ -17,6 +17,7 @@ public class Ordfilt2 {
 
     /**
      * Uses ordfilt2 algorithm to filter given image.
+     *
      * @param image
      * @param maskX
      * @param maskY
@@ -87,6 +88,7 @@ public class Ordfilt2 {
 
     /**
      * Return each pixel after filtration by given mask and number.
+     *
      * @param x
      * @param y
      * @param arr
