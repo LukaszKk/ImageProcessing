@@ -77,6 +77,7 @@ public class GeoDistance {
 
     /**
      * Logical operation - AND.
+     *
      * @param marker
      * @param original
      * @return
@@ -96,6 +97,7 @@ public class GeoDistance {
 
     /**
      * Carries out dilatation algorithm.
+     *
      * @param values
      * @param dilMap
      * @param iter
@@ -131,7 +133,7 @@ public class GeoDistance {
     }
 
     /**
-     *Read information about starting point of calculation.
+     * Read information about starting point of calculation.
      */
     private void info() {
         System.out.println("NastedPoint A");
