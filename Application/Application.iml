@@ -8,5 +8,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="ImageProcessing" level="project" />
+    <orderEntry type="library" name="ImageProcessing-1.0-SNAPSHOT3" level="project" />
+    <orderEntry type="library" name="ImageProcessing-1.0-SNAPSHOT4" level="project" />
   </component>
 </module>

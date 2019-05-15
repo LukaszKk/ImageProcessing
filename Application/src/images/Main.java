@@ -2,10 +2,6 @@ package images;
 
 import image.processing.ImageProcess;
 import image.processing.ImageTransform;
-import image.processing.Reconstruction;
-import image.processing.Ordfilt2;
-import image.processing.Regionprops;
-import image.processing.GeoDistance;
 
 import java.awt.image.BufferedImage;
 
@@ -16,7 +12,7 @@ public class Main
         new Frame();
 
         /*
-        ImageTransform im = new ImageTransform();
+        ImageAdvanceTransformation im = new ImageAdvanceTransformation();
         Reconstruction re = new Reconstruction();
         BufferedImage background = ImageProcess.bufferedImage("src\\images\\background.png");
         BufferedImage image = ImageProcess.bufferedImage("src\\images\\image.png");
