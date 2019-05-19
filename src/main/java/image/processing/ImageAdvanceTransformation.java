@@ -120,7 +120,7 @@ public class ImageAdvanceTransformation {
      *
      * @param im
      */
-    public BufferedImage geodistance(BufferedImage im) {
+    public BufferedImage geodistance(BufferedImage im, int x, int y) {
 
         int[][] SE = new int[3][3];
         for (int i = 0; i < 3; i++)
@@ -128,12 +128,8 @@ public class ImageAdvanceTransformation {
                 SE[i][j] = 1;
         Point a = new Point();
 
-        System.out.println("NastedPoint A");
-        System.out.print("x = ");
-        Scanner sc = new Scanner(System.in);
-        a.x = sc.nextInt();
-        System.out.print("y = ");
-        a.y = sc.nextInt();
+        a.x = im.getWidth()/2;
+        a.y = im.getHeight()/2;
 
         BufferedImage map = null;
 
@@ -164,7 +160,7 @@ public class ImageAdvanceTransformation {
         marker[a.x][a.y] = 1;
 
         int iter = 0;
-        int condition = (height + width) * 2;
+        int condition = (height + width);
 
         while (iter < condition) {
             marker = dilatation(marker, dilationMap, iter % 255, width, height);

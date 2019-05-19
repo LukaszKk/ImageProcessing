@@ -2,6 +2,7 @@ package images;
 
 import image.processing.ImageProcess;
 import image.processing.ImageBasicTransformation;
+import image.processing.ImageAdvanceTransformation;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,8 +10,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Component extends JComponent
-{
+public class Component extends JComponent {
     private JButton button1;
     private JButton button2;
     private JButton button3;
@@ -19,17 +19,21 @@ public class Component extends JComponent
     private JButton button6;
     private JButton button7;
     private JButton button8;
+    private JButton button9;
+    private JButton button10;
+    private JButton button11;
 
     private BufferedImage image;
     private BufferedImage imageIm;
     private BufferedImage imageBa;
     private BufferedImage imageOp;
     private BufferedImage imageEr;
+    private BufferedImage imageOr;
 
     private ImageBasicTransformation im;
+    private ImageAdvanceTransformation im2;
 
-    Component()
-    {
+    Component() {
         super();
 
         // create app
@@ -43,6 +47,9 @@ public class Component extends JComponent
         button6 = new JButton("Opening");
         button7 = new JButton("Erode");
         button8 = new JButton("Reconstruct");
+        button9 = new JButton("Ordfilt2");
+        button10 = new JButton("Geodetic map");
+        button11 = new JButton("Regionprops");
 
         buttonBackground.setBounds(10, 10, 150, 30);
         buttonImage.setBounds(10, 40, 150, 30);
@@ -54,6 +61,9 @@ public class Component extends JComponent
         button6.setBounds(10, 260, 150, 30);
         button7.setBounds(10, 290, 150, 30);
         button8.setBounds(10, 320, 150, 30);
+        button9.setBounds(10, 350, 150, 30);
+        button10.setBounds(10, 380, 150, 30);
+        button11.setBounds(10, 410, 150, 30);
         button1.setEnabled(false);
         button2.setEnabled(false);
         button3.setEnabled(false);
@@ -62,6 +72,9 @@ public class Component extends JComponent
         button6.setEnabled(false);
         button7.setEnabled(false);
         button8.setEnabled(false);
+        button9.setEnabled(false);
+        button10.setEnabled(false);
+        button11.setEnabled(false);
         add(buttonBackground);
         add(buttonImage);
         add(button1);
@@ -72,9 +85,13 @@ public class Component extends JComponent
         add(button6);
         add(button7);
         add(button8);
+        add(button9);
+        add(button10);
+        add(button11);
         //
 
         im = new ImageBasicTransformation();
+        im2 = new ImageAdvanceTransformation();
 
         // add actions to buttons
         buttonBackground.addActionListener(e ->
@@ -82,7 +99,7 @@ public class Component extends JComponent
             JFileChooser chooser = new JFileChooser();
             chooser.setCurrentDirectory(new File("src\\images"));
             int val = chooser.showOpenDialog(null);
-            if( val != JFileChooser.APPROVE_OPTION )
+            if (val != JFileChooser.APPROVE_OPTION)
                 return;
 
             imageBa = ImageProcess.bufferedImage(chooser.getSelectedFile().getPath());
@@ -92,6 +109,8 @@ public class Component extends JComponent
             button5.setEnabled(true);
             button6.setEnabled(true);
             button7.setEnabled(true);
+            button9.setEnabled(true);
+            button10.setEnabled(true);
 
             repaint();
         });
@@ -100,7 +119,7 @@ public class Component extends JComponent
             JFileChooser chooser = new JFileChooser();
             chooser.setCurrentDirectory(new File("src\\images"));
             int val = chooser.showOpenDialog(null);
-            if( val != JFileChooser.APPROVE_OPTION )
+            if (val != JFileChooser.APPROVE_OPTION)
                 return;
 
             imageIm = ImageProcess.bufferedImage(chooser.getSelectedFile().getPath());
@@ -121,9 +140,9 @@ public class Component extends JComponent
             image = imageBa;
 
             flag.incrementAndGet();
-            if( flag.get() == 2 )
+            if (flag.get() == 2)
                 button3.setEnabled(true);
-
+            button11.setEnabled(true);
             repaint();
         });
         button2.addActionListener(e ->
@@ -132,9 +151,9 @@ public class Component extends JComponent
             image = imageIm;
 
             flag.incrementAndGet();
-            if( flag.get() == 2 )
+            if (flag.get() == 2)
                 button3.setEnabled(true);
-
+            button11.setEnabled(true);
             repaint();
         });
         button3.addActionListener(e ->
@@ -145,6 +164,7 @@ public class Component extends JComponent
         button4.addActionListener(e ->
         {
             image = im.autoBinarize(image);
+            button11.setEnabled(true);
             repaint();
         });
         button5.addActionListener(e ->
@@ -156,7 +176,7 @@ public class Component extends JComponent
         {
             imageOp = im.opening(image, 3);
             image = imageOp;
-            if( imageOp != null && imageEr != null )
+            if (imageOp != null && imageEr != null)
                 button8.setEnabled(true);
             repaint();
         });
@@ -164,7 +184,7 @@ public class Component extends JComponent
         {
             imageEr = im.erosion(image, 10);
             image = imageEr;
-            if( imageOp != null && imageEr != null )
+            if (imageOp != null && imageEr != null)
                 button8.setEnabled(true);
             repaint();
         });
@@ -173,16 +193,33 @@ public class Component extends JComponent
             image = im.reconstruct(imageOp, imageEr);
             repaint();
         });
+        button9.addActionListener(e ->
+        {
+            imageOr = im2.ordfilt2(image,3,3,8);
+            image = imageOr;
+            repaint();
+        });
+        button10.addActionListener(e ->
+        {
+            image = im.autoBinarize(image);
+            image = im.reverseBinarize(image);
+            image = im2.geodistance(image, 0, 0);
+            repaint();
+        });
+        button11.addActionListener(e ->
+        {
+            im2.regionprops(image);
+            repaint();
+        });
         //
     }
 
     @Override
-    protected void paintComponent( Graphics g )
-    {
+    protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
         // draw actual image
-        if( image != null )
+        if (image != null)
             g.drawImage(image, 180, 10, 390, 340, this);
     }
 }
