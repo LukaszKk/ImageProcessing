@@ -1,7 +1,7 @@
 package images;
 
 import image.processing.ImageProcess;
-import image.processing.ImageTransform;
+import image.processing.ImageBasicTransformation;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,8 +26,7 @@ public class Component extends JComponent
     private BufferedImage imageOp;
     private BufferedImage imageEr;
 
-    private ImageTransform im;
-    private Reconstruction re;
+    private ImageBasicTransformation im;
 
     Component()
     {
@@ -75,8 +74,7 @@ public class Component extends JComponent
         add(button8);
         //
 
-        im = new ImageTransform();
-        re = new Reconstruction();
+        im = new ImageBasicTransformation();
 
         // add actions to buttons
         buttonBackground.addActionListener(e ->
@@ -172,7 +170,7 @@ public class Component extends JComponent
         });
         button8.addActionListener(e ->
         {
-            image = re.reconstruct(imageOp, imageEr);
+            image = im.reconstruct(imageOp, imageEr);
             repaint();
         });
         //

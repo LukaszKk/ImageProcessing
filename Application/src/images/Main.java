@@ -1,7 +1,7 @@
 package images;
 
+import image.processing.ImageBasicTransformation;
 import image.processing.ImageProcess;
-import image.processing.ImageTransform;
 
 import java.awt.image.BufferedImage;
 
@@ -12,13 +12,9 @@ public class Main
         new Frame();
 
         /*
-        ImageAdvanceTransformation im = new ImageAdvanceTransformation();
-        Reconstruction re = new Reconstruction();
+        ImageBasicTransformation im = new ImageBasicTransformation();
         BufferedImage background = ImageProcess.bufferedImage("src\\images\\background.png");
         BufferedImage image = ImageProcess.bufferedImage("src\\images\\image.png");
-        Ordfilt2 ordfilt2 = new Ordfilt2();
-        Regionprops regionprops = new Regionprops();
-        GeoDistance geoDistance = new GeoDistance();
 
         try
         {
@@ -43,7 +39,7 @@ public class Main
             BufferedImage image7 = im.erosion(image6, 10);
             ImageProcess.saveImage(image7, "src\\images\\result\\image7");        //erosion
 
-            BufferedImage image8 = re.reconstruct(image7, image6);
+            BufferedImage image8 = im.reconstruct(image7, image6);
             ImageProcess.saveImage(image8, "src\\images\\result\\image8");        //reconstruction
 
             ImageProcess.showImage("src\\images\\result\\image8.jpg");

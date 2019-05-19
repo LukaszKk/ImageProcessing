@@ -1,72 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd"
-           name="image.processing.AppTest" time="0.134" tests="1" errors="0" skipped="0" failures="0">
-    <properties>
-        <property name="sun.desktop" value="windows"/>
-        <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
-        <property name="java.specification.version" value="11"/>
-        <property name="sun.cpu.isalist" value="amd64"/>
-        <property name="sun.jnu.encoding" value="Cp1250"/>
-        <property name="java.class.path"
-                  value="D:\Projekty\Java\Java\ImageProcessing\target\test-classes;D:\Projekty\Java\Java\ImageProcessing\target\classes;C:\Users\lukas\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\lukas\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
-        <property name="java.vm.vendor" value="Oracle Corporation"/>
-        <property name="sun.arch.data.model" value="64"/>
-        <property name="user.variant" value=""/>
-        <property name="java.vendor.url" value="http://java.oracle.com/"/>
-        <property name="user.timezone" value="Europe/Belgrade"/>
-        <property name="java.vm.specification.version" value="11"/>
-        <property name="os.name" value="Windows 10"/>
-        <property name="sun.java.launcher" value="SUN_STANDARD"/>
-        <property name="user.country" value="PL"/>
-        <property name="sun.boot.library.path" value="D:\Progamy\Java\jdk11.02\bin"/>
-        <property name="sun.java.command"
-                  value="C:\Users\lukas\AppData\Local\Temp\surefire15704209211406453375\surefirebooter7178635901435933999.jar C:\Users\lukas\AppData\Local\Temp\surefire15704209211406453375 2019-05-13T17-19-11_392-jvmRun1 surefire12854100407374376126tmp surefire_08928918060892973737tmp"/>
-        <property name="jdk.debug" value="release"/>
-        <property name="surefire.test.class.path"
-                  value="D:\Projekty\Java\Java\ImageProcessing\target\test-classes;D:\Projekty\Java\Java\ImageProcessing\target\classes;C:\Users\lukas\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\lukas\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
-        <property name="sun.cpu.endian" value="little"/>
-        <property name="user.home" value="C:\Users\lukas"/>
-        <property name="user.language" value="pl"/>
-        <property name="java.specification.vendor" value="Oracle Corporation"/>
-        <property name="java.version.date" value="2019-01-15"/>
-        <property name="java.home" value="D:\Progamy\Java\jdk11.02"/>
-        <property name="file.separator" value="\"/>
-        <property name="basedir" value="D:\Projekty\Java\Java\ImageProcessing"/>
-        <property name="java.vm.compressedOopsMode" value="Zero based"/>
-        <property name="line.separator" value="&#10;"/>
-        <property name="java.specification.name" value="Java Platform API Specification"/>
-        <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
-        <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-        <property name="surefire.real.class.path"
-                  value="C:\Users\lukas\AppData\Local\Temp\surefire15704209211406453375\surefirebooter7178635901435933999.jar"/>
-        <property name="user.script" value=""/>
-        <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-        <property name="java.runtime.version" value="11.0.2+9-LTS"/>
-        <property name="user.name" value="lukas"/>
-        <property name="path.separator" value=";"/>
-        <property name="os.version" value="10.0"/>
-        <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
-        <property name="file.encoding" value="Cp1250"/>
-        <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
-        <property name="java.vendor.version" value="18.9"/>
-        <property name="localRepository" value="C:\Users\lukas\.m2\repository"/>
-        <property name="java.vendor.url.bug" value="http://bugreport.java.com/bugreport/"/>
-        <property name="java.io.tmpdir" value="C:\Users\lukas\AppData\Local\Temp\"/>
-        <property name="java.version" value="11.0.2"/>
-        <property name="user.dir" value="D:\Projekty\Java\Java\ImageProcessing"/>
-        <property name="os.arch" value="amd64"/>
-        <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-        <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
-        <property name="sun.os.patch.level" value=""/>
-        <property name="idea.version2019.1.1" value="true"/>
-        <property name="java.library.path"
-                  value="D:\Progamy\Java\jdk11.02\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;D:\Progamy\MatLab\runtime\win64;D:\Progamy\MatLab\bin;D:\Progamy\PostgreSQL\bin;D:\Progamy\PostgreSQL\lib;D:\Progamy\Git\cmd;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Users\lukas\AppData\Local\Microsoft\WindowsApps;."/>
-        <property name="java.vendor" value="Oracle Corporation"/>
-        <property name="java.vm.info" value="mixed mode"/>
-        <property name="java.vm.version" value="11.0.2+9-LTS"/>
-        <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
-        <property name="java.class.version" value="55.0"/>
-    </properties>
-    <testcase name="shouldAnswerWithTrue" classname="image.processing.AppTest" time="0.004"/>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="image.processing.AppTest" time="0.105" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1250"/>
+    <property name="java.class.path" value="D:\Projekty\Java\Java\ImageProcessing\target\test-classes;D:\Projekty\Java\Java\ImageProcessing\target\classes;C:\Users\lukas\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\lukas\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value="Europe/Belgrade"/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="PL"/>
+    <property name="sun.boot.library.path" value="D:\Progamy\Java\jdk11.02\bin"/>
+    <property name="sun.java.command" value="C:\Users\lukas\AppData\Local\Temp\surefire13336392141091112163\surefirebooter7481953957964487894.jar C:\Users\lukas\AppData\Local\Temp\surefire13336392141091112163 2019-05-19T14-49-17_567-jvmRun1 surefire1222025539637760326tmp surefire_04528734567297992183tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="D:\Projekty\Java\Java\ImageProcessing\target\test-classes;D:\Projekty\Java\Java\ImageProcessing\target\classes;C:\Users\lukas\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\lukas\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\lukas"/>
+    <property name="user.language" value="pl"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2019-01-15"/>
+    <property name="java.home" value="D:\Progamy\Java\jdk11.02"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="D:\Projekty\Java\Java\ImageProcessing"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\lukas\AppData\Local\Temp\surefire13336392141091112163\surefirebooter7481953957964487894.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="11.0.2+9-LTS"/>
+    <property name="user.name" value="lukas"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="Cp1250"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="18.9"/>
+    <property name="localRepository" value="C:\Users\lukas\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\lukas\AppData\Local\Temp\"/>
+    <property name="java.version" value="11.0.2"/>
+    <property name="user.dir" value="D:\Projekty\Java\Java\ImageProcessing"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="idea.version2019.1.2" value="true"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="D:\Progamy\Java\jdk11.02\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;D:\Progamy\MatLab\runtime\win64;D:\Progamy\MatLab\bin;D:\Progamy\PostgreSQL\bin;D:\Progamy\PostgreSQL\lib;D:\Progamy\Git\cmd;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Users\lukas\AppData\Local\Microsoft\WindowsApps;."/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vm.version" value="11.0.2+9-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="55.0"/>
+  </properties>
+  <testcase name="shouldAnswerWithTrue" classname="image.processing.AppTest" time="0.005"/>
 </testsuite>

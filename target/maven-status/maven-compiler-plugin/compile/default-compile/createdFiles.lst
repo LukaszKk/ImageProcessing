@@ -1,8 +1,4 @@
-image\processing\ImageTransform.class
+image\processing\ImageBasicTransformation.class
+image\processing\ImageAdvanceTransformation.class
 image\processing\ImageProcess$1.class
-image\processing\Reconstruction.class
-image\processing\GeoDistance.class
-image\processing\ImageConvert.class
-image\processing\Regionprops.class
-image\processing\Ordfilt2.class
 image\processing\ImageProcess.class

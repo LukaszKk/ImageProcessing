@@ -241,18 +241,14 @@ public class ImageBasicTransformation {
      * @return new BufferedImage object
      */
     public BufferedImage dilatation(BufferedImage image, int radius) {
-        BufferedImage binImage = autoBinarize(image);
-        BufferedImage newImage = new BufferedImage(binImage.getWidth(), binImage.getHeight(), BufferedImage.TYPE_INT_RGB);
+        BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_RGB);
 
-        for (int i = radius; i < binImage.getHeight() - radius; i++) {
-            for (int j = radius; j < binImage.getWidth() - radius; j++) {
-                if (grayScale(binImage, j, i) == 0) {
-                    if (inCircle(binImage, radius, j, i, 255))
-                        newImage.setRGB(j, i, white);
-                    else
-                        newImage.setRGB(j, i, black);
-                } else
-                    newImage.setRGB(j, i, white);
+        for( int i = 0; i < image.getHeight(); i++ )
+        {
+            for( int j = 0; j < image.getWidth(); j++ )
+            {
+                int c = inCircleMax(i, j, image, radius);
+                newImage.setRGB(j, i, c);
             }
         }
 
@@ -267,20 +263,14 @@ public class ImageBasicTransformation {
      * @return new BufferedImage object
      */
     public BufferedImage erosion(BufferedImage image, int radius) {
-        BufferedImage binImage = autoBinarize(image);
-        BufferedImage newImage = new BufferedImage(binImage.getWidth(), binImage.getHeight(), BufferedImage.TYPE_INT_RGB);
+        BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_RGB);
 
-        int black = new Color(0, 0, 0).getRGB();
-        int white = new Color(255, 255, 255).getRGB();
-        for (int i = radius; i < binImage.getHeight() - radius; i++) {
-            for (int j = radius; j < binImage.getWidth() - radius; j++) {
-                if (grayScale(binImage, j, i) == 255) {
-                    if (inCircle(binImage, radius, j, i, 0))
-                        newImage.setRGB(j, i, black);
-                    else
-                        newImage.setRGB(j, i, white);
-                } else
-                    newImage.setRGB(j, i, black);
+        for( int i = 0; i < image.getHeight(); i++ )
+        {
+            for( int j = 0; j < image.getWidth(); j++ )
+            {
+                int c = inCircleMin(i, j, image, radius);
+                newImage.setRGB(j, i, c);
             }
         }
 
@@ -321,20 +311,84 @@ public class ImageBasicTransformation {
      * @param val    take 0 or 255 value
      * @return true if point is inside, otherwise false
      */
-    private boolean inCircle(BufferedImage image, int radius, int x, int y, int val) {
-        for (int i = y - radius; i < y + radius; i++) {
-            for (int j = x; (j - x) * (j - x) + (i - y) * (i - y) <= radius * radius; j--) {
-                //in the circle
-                if (grayScale(image, j, i) == val)
-                    return true;
+    /**
+     * Finds minimum value inside disk
+     *
+     * @param x0     X axis coordinate of disk center
+     * @param y0     Y axis coordinate of disk center
+     * @param image  BufferedImage object
+     * @param radius disk radius
+     * @return       minimum value
+     */
+    private int inCircleMin( int x0, int y0, BufferedImage image, int radius )
+    {
+        int c = Integer.MAX_VALUE;
+        int tmp;
+        for( int i = y0 - radius; i < y0 + radius; i++ )
+        {
+            for( int j = x0; (j - x0) * (j - x0) + (i - y0) * (i - y0) <= radius * radius; j-- )
+            {
+                if( i >= 0 && j >= 0 && i < image.getHeight() && j < image.getWidth() )
+                {
+                    //in the circle
+                    tmp = image.getRGB(j, i);
+                    if( tmp < c )
+                        c = tmp;
+                }
             }
-            for (int j = x + 1; (j - x) * (j - x) + (i - y) * (i - y) <= radius * radius; j++) {
-                //in the circle
-                if (grayScale(image, j, i) == val)
-                    return true;
+            for( int j = x0 + 1; (j - x0) * (j - x0) + (i - y0) * (i - y0) <= radius * radius; j++ )
+            {
+                if( i >= 0 && j >= 0 && i < image.getHeight() && j < image.getWidth() )
+                {
+                    //in the circle
+                    tmp = image.getRGB(j, i);
+                    if( tmp < c )
+                        c = tmp;
+                }
             }
         }
-        return false;
+
+        return c;
+    }
+
+    /**
+     * Finds maximum value inside disk
+     *
+     * @param x0     X axis coordinate of disk center
+     * @param y0     Y axis coordinate of disk center
+     * @param image  BufferedImage object
+     * @param radius disk radius
+     * @return       maximum value
+     */
+    private int inCircleMax( int x0, int y0, BufferedImage image, int radius )
+    {
+        int c = -Integer.MAX_VALUE;
+        int tmp;
+        for( int i = y0 - radius; i < y0 + radius; i++ )
+        {
+            for( int j = x0; (j - x0) * (j - x0) + (i - y0) * (i - y0) <= radius * radius; j-- )
+            {
+                if( i >= 0 && j >= 0 && i < image.getHeight() && j < image.getWidth() )
+                {
+                    //in the circle
+                    tmp = image.getRGB(j, i);
+                    if( tmp > c )
+                        c = tmp;
+                }
+            }
+            for( int j = x0 + 1; (j - x0) * (j - x0) + (i - y0) * (i - y0) <= radius * radius; j++ )
+            {
+                if( i >= 0 && j >= 0 && i < image.getHeight() && j < image.getWidth() )
+                {
+                    //in the circle
+                    tmp = image.getRGB(j, i);
+                    if( tmp > c )
+                        c = tmp;
+                }
+            }
+        }
+
+        return c;
     }
 
     /**
