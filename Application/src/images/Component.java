@@ -53,9 +53,9 @@ public class Component extends JComponent {
 
         buttonBackground.setBounds(10, 10, 150, 30);
         buttonImage.setBounds(10, 40, 150, 30);
-        button1.setBounds(10, 110, 150, 30);
-        button2.setBounds(10, 140, 150, 30);
-        button3.setBounds(10, 170, 150, 30);
+        button1.setBounds(10, 100, 150, 30);
+        button2.setBounds(10, 130, 150, 30);
+        button3.setBounds(10, 160, 150, 30);
         button4.setBounds(10, 190, 150, 30);
         button5.setBounds(10, 220, 150, 30);
         button6.setBounds(10, 250, 150, 30);
