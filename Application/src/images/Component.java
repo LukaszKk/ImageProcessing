@@ -56,14 +56,14 @@ public class Component extends JComponent {
         button1.setBounds(10, 110, 150, 30);
         button2.setBounds(10, 140, 150, 30);
         button3.setBounds(10, 170, 150, 30);
-        button4.setBounds(10, 200, 150, 30);
-        button5.setBounds(10, 230, 150, 30);
-        button6.setBounds(10, 260, 150, 30);
-        button7.setBounds(10, 290, 150, 30);
-        button8.setBounds(10, 320, 150, 30);
-        button9.setBounds(10, 350, 150, 30);
-        button10.setBounds(10, 380, 150, 30);
-        button11.setBounds(10, 410, 150, 30);
+        button4.setBounds(10, 190, 150, 30);
+        button5.setBounds(10, 220, 150, 30);
+        button6.setBounds(10, 250, 150, 30);
+        button7.setBounds(10, 280, 150, 30);
+        button8.setBounds(10, 310, 150, 30);
+        button9.setBounds(10, 360, 150, 30);
+        button10.setBounds(10, 390, 150, 30);
+        button11.setBounds(10, 420, 150, 30);
         button1.setEnabled(false);
         button2.setEnabled(false);
         button3.setEnabled(false);
@@ -218,8 +218,13 @@ public class Component extends JComponent {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
+        g.drawLine(179,9, 670, 9 );
+        g.drawLine(670,9, 670, 450 );
+        g.drawLine(670,450, 179, 450 );
+        g.drawLine(179,450, 179, 9 );
+
         // draw actual image
         if (image != null)
-            g.drawImage(image, 180, 10, 390, 340, this);
+            g.drawImage(image, 180, 10, 490, 440, this);
     }
 }

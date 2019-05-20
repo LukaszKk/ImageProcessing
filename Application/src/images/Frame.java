@@ -10,9 +10,9 @@ public class Frame {
         int screenWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
         int screenHeight = Toolkit.getDefaultToolkit().getScreenSize().height;
 
-        frame.setSize(600, 400);
-        frame.setLocation(screenWidth / 2 - 300,
-                screenHeight / 2 - 300);
+        frame.setSize(700, 500);
+        frame.setLocation(screenWidth / 2 - 350,
+                screenHeight / 2 - 250);
 
         JComponent component = new Component();
 

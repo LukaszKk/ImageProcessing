@@ -262,7 +262,7 @@ public class ImageBasicTransformation {
 
         for (int i = 0; i < image.getHeight(); i++) {
             for (int j = 0; j < image.getWidth(); j++) {
-                int c = inCircleMax(i, j, image, radius);
+                int c = inCircleMax(j, i, image, radius);
                 newImage.setRGB(j, i, c);
             }
         }
@@ -282,7 +282,7 @@ public class ImageBasicTransformation {
 
         for (int i = 0; i < image.getHeight(); i++) {
             for (int j = 0; j < image.getWidth(); j++) {
-                int c = inCircleMin(i, j, image, radius);
+                int c = inCircleMin(j, i, image, radius);
                 newImage.setRGB(j, i, c);
             }
         }
